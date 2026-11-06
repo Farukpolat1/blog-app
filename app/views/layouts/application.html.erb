@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlogApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <nav class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex space-x-8 items-center">
+            <span class="text-xl font-bold bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
+              🚀 Geliştirici Paneli
+            </span>
+            <div class="flex space-x-4">
+              <%= link_to "İş İlanları", jobs_path, class: "text-sm font-semibold text-gray-700 hover:text-blue-600 transition" %>
+              <%= link_to "Blog Yazıları", posts_path, class: "text-sm font-semibold text-gray-700 hover:text-blue-600 transition" %>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+  <% if user_signed_in? %>
+    <div class="flex items-center space-x-3 bg-gray-50 border border-gray-100 px-4 py-1.5 rounded-full shadow-sm">
+      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span class="text-sm font-medium text-gray-700">
+        Hoş geldin, <span class="font-bold text-gray-900"><%= current_user.email.split('@').first.capitalize %></span>
+      </span>
+    </div>
+    
+    <%= link_to "Çıkış Yap", destroy_user_session_path, 
+                class: "text-sm font-semibold text-red-600 hover:text-red-700 hover:bg-red-50 px-3 py-2 rounded-xl transition duration-150" %>
+  
+  <% else %>
+    <%= link_to "Giriş Yap", new_user_session_path, 
+                class: "text-sm font-semibold text-gray-600 hover:text-gray-900 px-3 py-2 transition" %>
+    
+    <%= link_to "Kayıt Ol", new_user_registration_path, 
+                class: "bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-xl shadow-sm hover:shadow transition duration-150" %>
+  <% end %>
+</div>
+              ⚡ Canlı Mod
+            </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="bg-gray-50 min-h-screen pt-4">
+      <%= yield %>
+    </div>
+  </body>
+</html>
+
+

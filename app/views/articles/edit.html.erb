@@ -1,0 +1,38 @@
+<div style="max-width: 600px; margin: 40px auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; font-family: sans-serif;">
+
+  <h2>Makaleyi Düzenle</h2>
+
+  <%= form_with(model: @article) do |form| %>
+    <% if @article.errors.any? %>
+      <div style="color: red; margin-bottom: 20px;">
+        <h4><%= pluralize(@article.errors.count, "hata") %> nedeniyle kaydedilemedi:</h4>
+        <ul>
+          <% @article.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div style="margin-bottom: 15px;">
+      <%= form.label :title, "Makale Başlığı", style: "display: block; font-weight: bold; margin-bottom: 5px;" %>
+      <%= form.text_field :title, style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" %>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <%= form.label :body, "İçerik", style: "display: block; font-weight: bold; margin-bottom: 5px;" %>
+      <%= form.text_area :body, rows: 6, style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" %>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <%= form.submit "Değişiklikleri Kaydet", style: "background-color: #2b6cb0; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer;" %>
+    </div>
+  <% end %>
+
+  <br>
+  <div style="border-top: 1px solid #eee; padding-top: 15px;">
+    <%= link_to "← İptal Et ve Detaya Dön", article_path(@article), style: "color: #555; text-decoration: none;" %> |
+    <%= link_to "Anasayfa", articles_path, style: "color: #555; text-decoration: none;" %>
+  </div>
+
+</div>

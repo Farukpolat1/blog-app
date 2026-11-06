@@ -1,0 +1,40 @@
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+<div class="max-w-4xl mx-auto px-4 py-8">
+
+  <div class="flex justify-between items-center mb-8 border-b pb-4">
+    <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">Tüm İş İlanları</h1>
+    <%= link_to "Yeni İş İlanı Ekle", new_job_path, class: "bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg shadow-sm transition duration-200" %>
+  </div>
+  <div class="flex flex-wrap gap-2 mb-8 bg-gray-100 p-2 rounded-xl">
+  <%= link_to "Tümü", jobs_path, class: "text-sm font-medium px-4 py-2 rounded-lg #{params[:category].blank? ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600 hover:text-gray-900'}" %>
+  <%= link_to "Backend", jobs_path(category: "Backend"), class: "text-sm font-medium px-4 py-2 rounded-lg #{params[:category] == 'Backend' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600 hover:text-gray-900'}" %>
+  <%= link_to "Frontend", jobs_path(category: "Frontend"), class: "text-sm font-medium px-4 py-2 rounded-lg #{params[:category] == 'Frontend' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600 hover:text-gray-900'}" %>
+  <%= link_to "Tasarım", jobs_path(category: "Tasarım"), class: "text-sm font-medium px-4 py-2 rounded-lg #{params[:category] == 'Tasarım' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600 hover:text-gray-900'}" %>
+  <%= link_to "Pazarlama", jobs_path(category: "Pazarlama"), class: "text-sm font-medium px-4 py-2 rounded-lg #{params[:category] == 'Pazarlama' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600 hover:text-gray-900'}" %>
+</div>
+
+  <div class="grid gap-6 md:grid-cols-2">
+    <% @jobs.each do |job| %>
+      <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition duration-200 flex flex-col justify-between">
+        <div>
+          <h2 class="text-xl font-bold text-gray-800 hover:text-blue-600 mb-2">
+            <% if job.category.present? %>
+  <span class="inline-block bg-blue-50 text-blue-600 text-xs font-semibold px-2.5 py-1 rounded-md mb-2">
+    📁 <%= job.category %>
+  </span>
+<% end %>
+            <%= link_to job.title, job_path(job) %>
+          </h2>
+          <p class="text-sm font-medium text-gray-500 mb-4">🏢 <%= job.company %></p>
+        </div>
+        <div class="mt-4">
+          <%= link_to "Detayları Gör →", job_path(job), class: "text-sm font-semibold text-blue-600 hover:text-blue-800" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

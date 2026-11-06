@@ -1,0 +1,47 @@
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="max-w-md mx-auto px-4 py-16">
+  <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+    
+    <div class="text-center mb-8">
+      <h2 class="text-2xl font-bold text-gray-900">Yeni Hesap Oluştur</h2>
+      <p class="text-sm text-gray-500 mt-1">Geliştirici Paneli'ne katılmak için formu doldurun.</p>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-6" }) do |f| %>
+      
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div>
+        <%= f.label :email, "E-posta Adresi", class: "block text-sm font-semibold text-gray-700 mb-2" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "ornek@gmail.com",
+            class: "w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-gray-900 transition" %>
+      </div>
+
+      <div>
+        <%= f.label :password, "Şifre", class: "block text-sm font-semibold text-gray-700 mb-2" %>
+        <% if @minimum_password_length %>
+          <span class="text-xs text-gray-400 font-normal">(En az <%= @minimum_password_length %> karakter)</span>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "••••••••",
+            class: "w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-gray-900 transition" %>
+      </div>
+
+      <div>
+        <%= f.label :password_confirmation, "Şifreyi Tekrar Girin", class: "block text-sm font-semibold text-gray-700 mb-2" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "••••••••",
+            class: "w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-gray-900 transition" %>
+      </div>
+
+      <div>
+        <%= f.submit "Kayıt Ol ve Katıl", 
+            class: "w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-xl shadow-sm transition duration-200 cursor-pointer text-center block" %>
+      </div>
+    <% end %>
+
+    <div class="mt-6 pt-4 border-t border-gray-100 text-center text-sm space-y-2 text-gray-500">
+      <%= render "devise/shared/links" %>
+    </div>
+
+  </div>
+</div>

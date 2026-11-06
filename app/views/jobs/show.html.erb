@@ -1,0 +1,37 @@
+<script src="https://cdn.tailwindcss.com"></script>
+
+<div class="max-w-3xl mx-auto px-4 py-12">
+
+  <div class="mb-6">
+    <%= link_to "← Tüm İlanlara Geri Dön", jobs_path, class: "text-sm font-medium text-blue-600 hover:text-blue-800 transition" %>
+  </div>
+
+  <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+    
+    <div class="border-b pb-6 mb-6">
+      <span class="inline-block bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Aktif İlan</span>
+      <h1 class="text-3xl font-bold text-gray-900 mb-2"><%= @job.title %></h1>
+      <p class="text-lg font-medium text-gray-600 flex items-center">
+        🏢 <%= @job.company %>
+      </p>
+    </div>
+
+    <div class="space-y-4 mb-8">
+      <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
+        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Başvuru Adresi (URL)</h3>
+        <a href="<%= @job.url %>" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium break-all underline">
+          <%= @job.url %>
+        </a>
+      </div>
+    </div>
+
+    <div class="flex justify-end gap-3 pt-4 border-t border-gray-100">
+      <%= link_to "Bu İlanı Düzenle", edit_job_path(@job), class: "bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-2 rounded-lg text-sm transition" %>
+      
+      <%= link_to "Bu İlanı Sil", job_path(@job), 
+                  data: { turbo_method: :delete, turbo_confirm: "Bu ilanı silmek istediğinize emin misiniz?" }, 
+                  class: "bg-red-50 hover:bg-red-100 text-red-600 font-medium px-4 py-2 rounded-lg text-sm transition" %>
+    </div>
+
+  </div>
+</div>

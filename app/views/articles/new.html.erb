@@ -1,0 +1,24 @@
+<h1>Yeni Makale Oluştur</h1>
+
+<%= form_with model: @article do |form| %>
+  <div>
+    <%= form.label :title, "Başlık" %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.label :body, "İçerik" %><br>
+    <%= form.text_area :body %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.submit "Makaleyi Kaydet" %>
+  </div>
+<% end %>
+
+<br>
+<%= link_to "İptal Et ve Listeye Dön", articles_path %>
