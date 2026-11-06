@@ -1,7 +1,3 @@
-
-![alt text](https://file%2B.vscode-resource.vscode-cdn.net/var/folders/cj/bv57826144x_d6zy63vnqxl80000gn/T/TemporaryItems/NSIRD_screencaptureui_FV8K2Q/Ekran%20Resmi%202026-11-06%2012.24.49.png?version%3D1793957093837)
-
-
 <div align="center">
 
 # 🚀 Geliştirici Paneli (blog-app)
@@ -13,33 +9,33 @@
 ![Hotwire](https://img.shields.io/badge/Hotwire-Turbo%20%26%20Stimulus-1F2937)
 ![Docker](https://img.shields.io/badge/Deploy-Kamal-2496ED?logo=docker&logoColor=white)
 
-![Job listings page](docs/screenshots/home.png)
+<img width="1512" alt="Job listings page" src="https://github.com/user-attachments/assets/8db77ea0-7e48-49e1-8519-ac922ae18c34" />
 
 </div>
 
 ## 📖 About
 
 Geliştirici Paneli is a full-stack Rails application where developers
-can browse and post job listings filtered by category, and read blog
-posts. Users can register and log in to manage their own content.
-Built to practice authentication, relational data modeling and the
-Hotwire frontend approach.
+can browse job listings by category and read blog posts. Registered
+users can log in and add new listings. I built it to practice
+authentication, relational data modeling and the Hotwire frontend
+approach.
 
 ## ✨ Features
 
 | Feature | Description |
 |---|---|
-| 💼 Job listings | Browse all listings with company name and details page |
+| 💼 Job listings | Browse all listings with company name and a details page |
 | 🗂 Category filter | Filter by Backend, Frontend, Design and Marketing |
-| ➕ Post a job | Logged-in users can add new job listings |
+| ➕ Post a job | Add new job listings from the interface |
 | 📝 Blog posts | Dedicated section for developer blog posts |
 | 🔐 Authentication | Register, log in and log out with Devise |
-| ⚡ Fast UX | Turbo-powered navigation without full page reloads |
+| ⚡ Fast navigation | Turbo-powered page transitions without full reloads |
 
 ## 🛠 Tech Stack
 
-- **Backend:** Ruby on Rails 8.1, Devise, Kaminari
-- **Frontend:** Hotwire (Turbo, Stimulus), Importmap, Propshaft, Simple Form
+- **Backend:** Ruby on Rails 8.1, Devise
+- **Frontend:** Hotwire (Turbo, Stimulus), Importmap, Propshaft
 - **Database:** SQLite
 - **Background / Cache / Realtime:** Solid Queue, Solid Cache, Solid Cable
 - **Deployment:** Docker, Kamal, Thruster
@@ -48,25 +44,27 @@ Hotwire frontend approach.
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Ruby [sürüm]
+- Ruby 3.2 or newer
 - Bundler
 
 ### Installation
 
-​```bash
+```bash
 git clone https://github.com/Farukpolat1/blog-app.git
 cd blog-app
 bundle install
 bin/rails db:setup
 bin/rails server
-​```
+```
 
-Open [http://localhost:3000](http://localhost:3000).
+Then open [http://localhost:3000](http://localhost:3000).
 
-## 🧠 What I Learned
-- [Devise ile kimlik doğrulama kurmayı]
-- [Kategoriye göre filtrelemeyi]
-- [senin gerçekten öğrendiğin bir şey]
+## 🧠 What I Practiced
+
+- Setting up authentication with Devise
+- Building category-based filtering for listings
+- Using Hotwire (Turbo and Stimulus) for a fast, SPA-like experience
+- Working with Rails 8's Solid Queue, Cache and Cable defaults
 
 ## 👤 Author
 
